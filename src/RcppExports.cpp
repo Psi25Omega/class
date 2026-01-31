@@ -11,6 +11,26 @@ Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
 Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
+// run_featuresrht_wrapper
+List run_featuresrht_wrapper(Eigen::MatrixXd X, Eigen::VectorXd y, Nullable<Eigen::MatrixXd> X_test_in, Nullable<Eigen::VectorXd> y_test_in, int r, int bins, bool run_uni, bool run_top, bool run_lev, bool run_sup);
+RcppExport SEXP _class_run_featuresrht_wrapper(SEXP XSEXP, SEXP ySEXP, SEXP X_test_inSEXP, SEXP y_test_inSEXP, SEXP rSEXP, SEXP binsSEXP, SEXP run_uniSEXP, SEXP run_topSEXP, SEXP run_levSEXP, SEXP run_supSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Eigen::MatrixXd >::type X(XSEXP);
+    Rcpp::traits::input_parameter< Eigen::VectorXd >::type y(ySEXP);
+    Rcpp::traits::input_parameter< Nullable<Eigen::MatrixXd> >::type X_test_in(X_test_inSEXP);
+    Rcpp::traits::input_parameter< Nullable<Eigen::VectorXd> >::type y_test_in(y_test_inSEXP);
+    Rcpp::traits::input_parameter< int >::type r(rSEXP);
+    Rcpp::traits::input_parameter< int >::type bins(binsSEXP);
+    Rcpp::traits::input_parameter< bool >::type run_uni(run_uniSEXP);
+    Rcpp::traits::input_parameter< bool >::type run_top(run_topSEXP);
+    Rcpp::traits::input_parameter< bool >::type run_lev(run_levSEXP);
+    Rcpp::traits::input_parameter< bool >::type run_sup(run_supSEXP);
+    rcpp_result_gen = Rcpp::wrap(run_featuresrht_wrapper(X, y, X_test_in, y_test_in, r, bins, run_uni, run_top, run_lev, run_sup));
+    return rcpp_result_gen;
+END_RCPP
+}
 // k_selection_cpp
 Rcpp::List k_selection_cpp(const Eigen::MatrixXd& X, const Eigen::VectorXd& y, int k, bool intercept);
 RcppExport SEXP _class_k_selection_cpp(SEXP XSEXP, SEXP ySEXP, SEXP kSEXP, SEXP interceptSEXP) {
@@ -103,6 +123,7 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
+    {"_class_run_featuresrht_wrapper", (DL_FUNC) &_class_run_featuresrht_wrapper, 10},
     {"_class_k_selection_cpp", (DL_FUNC) &_class_k_selection_cpp, 4},
     {"_class_SRHT_cpp", (DL_FUNC) &_class_SRHT_cpp, 3},
     {"_class_kBOSS", (DL_FUNC) &_class_kBOSS, 4},
